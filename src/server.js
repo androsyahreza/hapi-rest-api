@@ -10,7 +10,6 @@ const init = async () => {
   });
 
   await server.register(RoutesPlugin);
-
   await server.start();
   console.log(`Server started on: ${server.info.uri}`);
 };

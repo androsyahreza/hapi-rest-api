@@ -1,3 +1,5 @@
+const UserController = require("../controller/order.controller");
+
 const routes = [
   {
     method: "GET",
@@ -8,23 +10,41 @@ const routes = [
   },
   {
     method: "GET",
-    path: "/users/{user?}",
-    handler: (request, h) => {
-      return `Hello ${request.params.user}`;
-    },
-  },
-  {
-    method: "GET",
     path: "/{any*}",
     handler: (request, h) => {
       return "Oops! You must be lost!";
     },
   },
+  {
+    method: "POST",
+    path: "/orders",
+    handler: UserController.addOrder,
+  },
+  {
+    method: "GET",
+    path: "/orders",
+    handler: UserController.getProduct,
+  },
+  {
+    method: "GET",
+    path: "/orders/{id}",
+    handler: UserController.getProductById,
+  },
+  {
+    method: "PUT",
+    path: "/orders/{id}",
+    handler: UserController.udpateProduct,
+  },
+  {
+    method: "DELETE",
+    path: "/orders/{id}",
+    handler: UserController.deleteProduct,
+  },
 ];
 
 module.exports = {
   name: "routes",
-  version: '1.0.0',
+  version: "1.0.0",
   register: async (server, options) => {
     server.route(routes);
   },

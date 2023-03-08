@@ -17,27 +17,27 @@ const routes = [
   },
   {
     method: "POST",
-    path: "/orders",
+    path: "/api/orders",
     handler: UserController.addOrder,
   },
   {
     method: "GET",
-    path: "/orders",
+    path: "/api/orders",
     handler: UserController.getProduct,
   },
   {
     method: "GET",
-    path: "/orders/{id}",
+    path: "/api/orders/{id}",
     handler: UserController.getProductById,
   },
   {
     method: "PUT",
-    path: "/orders/{id}",
+    path: "/api/orders/{id}",
     handler: UserController.udpateProduct,
   },
   {
     method: "DELETE",
-    path: "/orders/{id}",
+    path: "/api/orders/{id}",
     handler: UserController.deleteProduct,
   },
 ];

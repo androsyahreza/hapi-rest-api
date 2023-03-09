@@ -15,10 +15,24 @@ const OrderController = {
   },
   async getProduct(request, h) {
     try {
+      const { page = 1, limit = 5 } = request.query;
+      const offset = (page - 1) * limit;
       const order = await Orders.findAll({
         attributes: ["id", "product_name", "order_date", "amount"],
+        limit: limit,
+        offset: offset,
       });
-      return h.response(order).code(200);
+      const totalCount = await Orders.count();
+      const totalPages = Math.ceil(totalCount / limit);
+
+      return h
+        .response({
+          data: order,
+          currentPage: page,
+          totalPages: totalPages,
+          totalItems: totalCount,
+        })
+        .code(200);
     } catch (err) {
       return Boom.internal(err.message);
     }

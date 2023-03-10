@@ -13,7 +13,7 @@ const OrderController = {
       return Boom.internal(err.message);
     }
   },
-  async getProduct(request, h) {
+  async getOrder(request, h) {
     try {
       const order = await Orders.findAll({
         attributes: ["id", "product_name", "order_date", "amount"],
@@ -23,7 +23,7 @@ const OrderController = {
       return Boom.internal(err.message);
     }
   },
-  async getProductById(request, h) {
+  async getOrderById(request, h) {
     try {
       const { id } = request.params;
       const order = await Orders.findByPk(id, {
@@ -38,7 +38,7 @@ const OrderController = {
       return Boom.internal(err.message);
     }
   },
-  async udpateProduct(request, h) {
+  async udpateOrder(request, h) {
     try {
       const { id } = request.params;
       const order = await Orders.findByPk(id);
@@ -56,7 +56,7 @@ const OrderController = {
       return Boom.internal(err.message);
     }
   },
-  async deleteProduct(request, h) {
+  async deleteOrder(request, h) {
     try {
       const { id } = request.params;
       const order = await Orders.findByPk(id);

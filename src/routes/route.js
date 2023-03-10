@@ -23,22 +23,22 @@ const routes = [
   {
     method: "GET",
     path: "/api/orders",
-    handler: UserController.getProduct,
+    handler: UserController.getOrder,
   },
   {
     method: "GET",
     path: "/api/orders/{id}",
-    handler: UserController.getProductById,
+    handler: UserController.getOrderById,
   },
   {
     method: "PUT",
     path: "/api/orders/{id}",
-    handler: UserController.udpateProduct,
+    handler: UserController.udpateOrder,
   },
   {
     method: "DELETE",
     path: "/api/orders/{id}",
-    handler: UserController.deleteProduct,
+    handler: UserController.deleteOrder,
   },
 ];
 

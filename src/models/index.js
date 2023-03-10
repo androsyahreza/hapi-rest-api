@@ -21,7 +21,17 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+db.users = require("./users.js")(sequelize, DataTypes);
 db.orders = require("./orders.js")(sequelize, DataTypes);
+
+db.users.hasMany(db.orders, {
+  foreignKey: "user_id",
+  as: "order",
+});
+db.orders.belongsTo(db.users, {
+  foreignKey: "user_id",
+  as: "user",
+});
 
 db.sequelize.sync({ force: false }).then(() => {
   console.log("re-sync done!");

@@ -1,4 +1,4 @@
-const UserController = require("../controller/order.controller");
+const OrderController = require("../controller/order.controller");
 const AuthController = require("../controller/auth.controller");
 const Validator = require("../validator/validator")
 
@@ -27,7 +27,7 @@ const routes = [
   {
     method: "POST",
     path: "/api/orders",
-    handler: UserController.addOrder,
+    handler: OrderController.addOrder,
     options: {
       auth: "jwt",
       validate: {
@@ -38,7 +38,7 @@ const routes = [
   {
     method: "GET",
     path: "/api/orders",
-    handler: UserController.getProduct,
+    handler: OrderController.getOrder,
     options: {
       auth: "jwt",
     },
@@ -46,7 +46,7 @@ const routes = [
   {
     method: "GET",
     path: "/api/orders/{id}",
-    handler: UserController.getProductById,
+    handler: OrderController.getOrderById,
     options: {
       auth: "jwt",
     },
@@ -54,7 +54,7 @@ const routes = [
   {
     method: "PUT",
     path: "/api/orders/{id}",
-    handler: UserController.udpateProduct,
+    handler: OrderController.udpateOrder,
     options: {
       auth: "jwt",
       validate: {
@@ -65,7 +65,7 @@ const routes = [
   {
     method: "DELETE",
     path: "/api/orders/{id}",
-    handler: UserController.deleteProduct,
+    handler: OrderController.deleteOrder,
     options: {
       auth: "jwt",
     },

@@ -18,7 +18,7 @@ const OrderController = {
       return Boom.internal(err.message);
     }
   },
-  async getProduct(request, h) {
+  async getOrder(request, h) {
     try {
       const userId = request.auth.credentials.id;
       const { page = 1, limit = 5 } = request.query;
@@ -46,7 +46,7 @@ const OrderController = {
       return Boom.internal(err.message);
     }
   },
-  async getProductById(request, h) {
+  async getOrderById(request, h) {
     try {
       const { id } = request.params;
       const order = await Orders.findByPk(id, {
@@ -61,7 +61,7 @@ const OrderController = {
       return Boom.internal(err.message);
     }
   },
-  async udpateProduct(request, h) {
+  async udpateOrder(request, h) {
     try {
       const { id } = request.params;
       const order = await Orders.findByPk(id);
@@ -79,7 +79,7 @@ const OrderController = {
       return Boom.internal(err.message);
     }
   },
-  async deleteProduct(request, h) {
+  async deleteOrder(request, h) {
     try {
       const { id } = request.params;
       const order = await Orders.findByPk(id);

@@ -1,4 +1,4 @@
-const UserController = require("../controller/order.controller");
+const OrderController = require("../controller/order.controller");
 
 const routes = [
   {
@@ -18,27 +18,27 @@ const routes = [
   {
     method: "POST",
     path: "/api/orders",
-    handler: UserController.addOrder,
+    handler: OrderController.addOrder,
   },
   {
     method: "GET",
     path: "/api/orders",
-    handler: UserController.getProduct,
+    handler: OrderController.getOrder,
   },
   {
     method: "GET",
     path: "/api/orders/{id}",
-    handler: UserController.getProductById,
+    handler: OrderController.getOrderById,
   },
   {
     method: "PUT",
     path: "/api/orders/{id}",
-    handler: UserController.udpateProduct,
+    handler: OrderController.udpateOrder,
   },
   {
     method: "DELETE",
     path: "/api/orders/{id}",
-    handler: UserController.deleteProduct,
+    handler: OrderController.deleteOrder,
   },
 ];
 
